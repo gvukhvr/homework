@@ -7,7 +7,7 @@ class strings:
         self.input_string = input("Enter a string: ")
 
     def printString(self):
-        print("Upper case:", self.input_string.upper())
+        print(self.input_string.upper())
 
 #2
 class Shape:
