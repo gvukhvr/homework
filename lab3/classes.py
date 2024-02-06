@@ -83,16 +83,34 @@ class Account:
 #6
             
 class PrimeFilter:
-    def is_prime(self, num):
-        if num < 2:
+    def __init__(self, numbers):
+        self.numbers = numbers
+
+    def is_prime(self, n):
+        if n <= 1:
             return False
-        for i in range(2, int(num**0.5) + 1):
-            if num % i == 0:
+        if n <= 3:
+            return True
+        if n % 2 == 0 or n % 3 == 0:
+            return False
+        i = 5
+        while i * i <= n:
+            if n % i == 0 or n % (i + 2) == 0:
                 return False
+            i += 6
         return True
 
-    def filter_primes(self, numbers):
-        return list(filter(lambda x: self.is_prime(x), numbers))
+    def filter_prime_numbers(self):
+        return list(filter(lambda x: self.is_prime(x), self.numbers))
+
+
+numbers = [23, 45, 17, 88, 97, 101, 13, 37]
+
+prime_filter = PrimeFilter(numbers)
+
+prime_numbers = prime_filter.filter_prime_numbers()
+
+print("Prime numbers in the list:", prime_numbers)
 
 
 
