@@ -22,7 +22,7 @@ def is_prime(n):
             return False
     return True
 
-def filter_prime(numbers):
+def fprime(numbers):
     return [num for num in numbers if is_prime(num)]
 
 # Task 5
@@ -73,8 +73,11 @@ def unique_elements(input_list):
     return unique_list
 
 # Task 11
-def is_palindrome(word):
-    return word == word[::-1]
+def palindrome(word):
+    if word == word[::-1]:
+        True
+    else:
+        False
 
 # Task 12
 def histogram(numbers):
@@ -82,41 +85,39 @@ def histogram(numbers):
         print('*' * num)
 
 # Task 13
+
 import random
 
-def guess_the_number():
+def guessing():
     print("Hello! What is your name?")
     player_name = input()
 
     print(f"Well, {player_name}, I am thinking of a number between 1 and 20.")
 
-    secret_number = random.randint(1, 20)
+    x = random.randint(1, 20)
 
-    guesses_taken = 0
-    max_guesses = 6 
+    count = 0
+   
 
-    while guesses_taken < max_guesses:
+    while True:
         print("Take a guess.")
         guess = int(input())
 
         guesses_taken += 1
 
-        if guess < secret_number:
+        if guess < x:
             print("Your guess is too low.")
-        elif guess > secret_number:
+        elif guess > x:
             print("Your guess is too high.")
         else:
             break 
 
-    if guess == secret_number:
-        print(f"Good job, {player_name}! You guessed my number in {guesses_taken} guesses.")
+    if guess == x:
+        print(f"Good job, {player_name}! You guessed my number in {count} guesses.")
 
-guess_the_number()
+guessing()
 
         
-
-
-
 
 
 
