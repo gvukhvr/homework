@@ -14,11 +14,10 @@ def solve(numheads, numlegs):
     return int(num_chickens), int(num_rabbits)
 
 # Task 4  
-import math
 def is_prime(n):
     if n < 2:
         return False
-    for i in range(2, int(math.sqrt(n)) + 1):
+    for i in range(2, int(num**0.5) + 1):
         if n % i == 0:
             return False
     return True
@@ -27,14 +26,13 @@ def filter_prime(numbers):
     return [num for num in numbers if is_prime(num)]
 
 # Task 5
-def string1(s):
-    if len(s) <= 1:
-        return [s]
-    perms = []
-    for i, char in enumerate(s):
-        for perm in string1(s[:i] + s[i+1:]):
-            perms.append(char + perm)
-    return perms
+def permutation(str1, current=''):
+    if not str1:
+        print(current)
+    else:
+        for i in range(len(str1)):
+            chars = str1[:i] + str1[i+1:]
+            permutation(chars, current + str1[i])
 
 # Task 6
 def reverse_words(sentence):
